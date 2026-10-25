@@ -12,7 +12,14 @@ public class DBConnection {
             throw new SQLException("MySQL JDBC Driver not found", e);
         }
 
-        return DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/cafeteria_system", "root", "root");
+        String host = System.getenv().getOrDefault("DB_HOST", "localhost");
+        String port = System.getenv().getOrDefault("DB_PORT", "3306");
+        String database = System.getenv().getOrDefault("DB_NAME", "cafeteria_system");
+        String username = System.getenv().getOrDefault("DB_USER", "root");
+        String password = System.getenv().getOrDefault("DB_PASSWORD", "root");
+
+        String url = "jdbc:mysql://" + host + ":" + port + "/" + database
+            + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+        return DriverManager.getConnection(url, username, password);
     }
 }

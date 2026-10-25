@@ -1,0 +1,5 @@
+build/
+.settings/
+.classpath
+.project
+src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.47-bin.jar

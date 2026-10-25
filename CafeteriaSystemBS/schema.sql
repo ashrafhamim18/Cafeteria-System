@@ -1,0 +1,88 @@
+CREATE DATABASE IF NOT EXISTS cafeteria_system;
+USE cafeteria_system;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  full_name VARCHAR(150) NOT NULL,
+  username VARCHAR(80) NOT NULL UNIQUE,
+  email VARCHAR(180) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(30) NOT NULL DEFAULT 'customer'
+);
+
+CREATE TABLE IF NOT EXISTS menu (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  description TEXT,
+  price DECIMAL(10,2) NOT NULL,
+  category VARCHAR(80),
+  image VARCHAR(255),
+  availability VARCHAR(30) NOT NULL DEFAULT 'available'
+);
+
+CREATE TABLE IF NOT EXISTS stock (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  menu_id INT NOT NULL UNIQUE,
+  stock_quantity INT NOT NULL DEFAULT 0,
+  FOREIGN KEY (menu_id) REFERENCES menu(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS cart_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  menu_id INT NOT NULL,
+  quantity INT NOT NULL DEFAULT 1,
+  UNIQUE KEY user_menu (user_id, menu_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (menu_id) REFERENCES menu(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  total_price DECIMAL(10,2) NOT NULL,
+  status VARCHAR(30) NOT NULL DEFAULT 'pending',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  menu_id INT NOT NULL,
+  quantity INT NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+  FOREIGN KEY (menu_id) REFERENCES menu(id)
+);
+
+CREATE TABLE IF NOT EXISTS order_history (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  status VARCHAR(30) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS queue (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL UNIQUE,
+  queue_number INT NOT NULL,
+  pickup_status VARCHAR(30) NOT NULL DEFAULT 'waiting',
+  estimated_time TIMESTAMP NULL,
+  seen_status BOOLEAN NOT NULL DEFAULT FALSE,
+  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS feedback (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  order_id INT NOT NULL,
+  rating INT NOT NULL,
+  feedback TEXT,
+  reply TEXT,
+  reply_seen BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (order_id) REFERENCES orders(id)
+);

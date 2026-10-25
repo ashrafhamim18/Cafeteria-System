@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>CafeteriaSystem</display-name>
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- ========== Authentication/Login ========== -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>com.controller.ChangePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/ChangePasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- ========== Customer ========== -->
+    <servlet>
+        <servlet-name>CustomerDashboardServlet1</servlet-name>
+        <servlet-class>com.controller.CustomerDashboardServlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerDashboardServlet1</servlet-name>
+        <url-pattern>/CustomerDashboardServlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CustomerBrowseMenuServlet</servlet-name>
+        <servlet-class>com.controller.CustomerBrowseMenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerBrowseMenuServlet</servlet-name>
+        <url-pattern>/CustomerBrowseMenuServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>com.controller.AddToCartServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/AddToCartServlet</url-pattern>
+</servlet-mapping>
+	
+
+    <servlet>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <servlet-class>com.controller.ViewCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <url-pattern>/ViewCartServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyOrdersServlet</servlet-name>
+        <servlet-class>com.controller.MyOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyOrdersServlet</servlet-name>
+        <url-pattern>/MyOrdersServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyReviewsServlet</servlet-name>
+        <servlet-class>com.controller.MyReviewsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyReviewsServlet</servlet-name>
+        <url-pattern>/MyReviewsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+            <servlet-name>GiveReviewServlet</servlet-name>
+        <servlet-class>com.controller.GiveReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GiveReviewServlet</servlet-name>
+        <url-pattern>/GiveReviewServlet</url-pattern>
+    </servlet-mapping>
+    <!-- ========== Staff ========== -->
+<servlet>
+    <servlet-name>StaffDashboardServlet</servlet-name>
+    <servlet-class>com.controller.StaffDashboardServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>StaffDashboardServlet</servlet-name>
+    <url-pattern>/StaffDashboardServlet</url-pattern>
+</servlet-mapping>
+
+	<servlet>
+    <servlet-name>ManageMenuServlet</servlet-name>
+    <servlet-class>com.controller.ManageMenuServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ManageMenuServlet</servlet-name>
+    <url-pattern>/ManageMenuServlet</url-pattern>
+</servlet-mapping>
+
+	<servlet>
+    <servlet-name>ManageOrdersServlet</servlet-name>
+    <servlet-class>com.controller.ManageOrdersServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ManageOrdersServlet</servlet-name>
+    <url-pattern>/ManageOrdersServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ManageStockServlet</servlet-name>
+    <servlet-class>com.controller.ManageStockServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ManageStockServlet</servlet-name>
+    <url-pattern>/ManageStockServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ManageQueueServlet</servlet-name>
+    <servlet-class>com.controller.ManageQueueServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ManageQueueServlet</servlet-name>
+    <url-pattern>/ManageQueueServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ManageReviewServlet</servlet-name>
+    <servlet-class>com.controller.ManageReviewServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ManageReviewServlet</servlet-name>
+    <url-pattern>/ManageReviewServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ConfirmPickupServlet</servlet-name>
+    <servlet-class>com.controller.ConfirmPickupServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ConfirmPickupServlet</servlet-name>
+    <url-pattern>/ConfirmPickupServlet</url-pattern>
+</servlet-mapping>
+
+    <!-- ========== Admin ========== -->
+    
+<servlet>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <servlet-class>com.controller.AdminDashboardServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <url-pattern>/AdminDashboardServlet</url-pattern>
+</servlet-mapping>
+
+    <!-- ========== Logout ========== -->
+<servlet>
+    <servlet-name>LogOutServlet</servlet-name>
+    <servlet-class>com.controller.LogOutServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>LogOutServlet</servlet-name>
+    <url-pattern>/LogOutServlet</url-pattern>
+</servlet-mapping>
+
+    <!-- ========== Register ========== -->
+<servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.controller.RegisterServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+</servlet-mapping>
+
+
+</web-app>

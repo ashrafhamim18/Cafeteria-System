@@ -1,0 +1,15 @@
+# Generated Java build output
+**/build/
+**/target/
+*.class
+*.war
+
+# Local configuration and editor files
+.env
+.env.*
+!.env.example
+.metadata/
+.idea/
+*.log
+Thumbs.db
+.DS_Store

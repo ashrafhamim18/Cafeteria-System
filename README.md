@@ -40,22 +40,6 @@ The application provides interfaces for three user roles:
 2. **Cafeteria staff** — manage menus, stock, incoming orders, and pickup queues.
 3. **Administrators** — access administrative management functions.
 
-## Screenshots
-
-Add screenshots from the application to an `images/` folder in this repository, then update the filenames below to match your uploaded images.
-
-### Customer Dashboard
-![Customer Dashboard](images/customer-dashboard.png)
-
-### Cafeteria Staff Dashboard
-![Cafeteria Staff Dashboard](images/staff-dashboard.png)
-
-### Order Pickup Queue
-![Order Pickup Queue](images/order-pickup-queue.png)
-
-### Database Entity Relationship Diagram (ERD)
-![Database ERD](images/database-erd.png)
-
 ## Getting Started
 
 This is a PHP and MySQL application. The exact installation and database import steps depend on the repository's file structure and configuration.
